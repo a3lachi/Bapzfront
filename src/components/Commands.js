@@ -68,13 +68,13 @@ const Commands = (props) => {
         )
     }
     else {
-        if (cmds?.length>0) {
+        if (cmds?.length>0 && typeof cmds === 'object') {
             return(
                 <Container>
                     {/* <ArrowBackIcon }/> */}
                     <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                     <Wrapper>
-                    {cmds?.length>0 && choseCmd?.length<1 && cmds?.map((elem,indx)=>(
+                    {cmds?.length>0 && choseCmd?.length<1 && cmds.map((elem,indx)=>(
                         <Comand id={indx} key={indx} onClick={(e)=>(Handleclick(e.target.id))} >
                         Command passed on {elem[0]} :
                         { elem[1]?.map((el,indx)=>(<img key={indx} alt={""} style={{width:'65px', height:'auto' , mixBlendMode: 'multiply'}} src={el[1]}/>)) }

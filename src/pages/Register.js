@@ -96,10 +96,18 @@ const Register = () => {
   const dispatch = useDispatch() ;
 
   const handleRegister = (data) => {
-    console.log('JWT ADDED',data.jwt)
-    store.dispatch(newUser(email))
-    
-    store.dispatch(setJwt(data.jwt))
+
+    try {
+      if (data.info === 'new') {
+        store.dispatch(newUser(email))
+        store.dispatch(setJwt(data.jwt))
+      }
+      else {
+        console.log("Couldn't register user : ",data.info)
+      }
+    } catch (err) {
+      console.log('Error during handling register.')
+    }
 
   }
 
@@ -112,6 +120,7 @@ const Register = () => {
     } catch (err) {
       dispatch(badUser())  ;
     }
+    e.preventDefault()
   }
 
   useEffect(()=>{

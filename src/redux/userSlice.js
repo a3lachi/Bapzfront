@@ -62,6 +62,7 @@ const userSlice = createSlice({
       }
     },
     setJwt : (state,action) => {
+      console.log('setJwt : inside store',action.payload,action.payload.length)
       state.jwt = action.payload
       document.cookie = "jwt="+action.payload+";"
     }

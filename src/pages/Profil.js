@@ -60,7 +60,7 @@ const Profil = () => {
                     }
                     
                 </Wrapper>
-                    { seecmds ? <></> : <button onClick={()=>store.dispatch(setJwt("jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"))} >LOG OUT</button> }
+                    { seecmds ? <></> : <button onClick={()=>store.dispatch(setJwt(""))} >LOG OUT</button> }
             </Container>
 
             

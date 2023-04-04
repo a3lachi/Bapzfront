@@ -46,7 +46,7 @@ const Account = (props) => {
         )
     }
     else {
-        if (info?.length>1) {
+        if (info?.length>0) {
             return(
                 <Container>
                     <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />

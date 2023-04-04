@@ -24,7 +24,6 @@ import {useEffect , useState} from 'react'
 
 function App() {
 
-  const  [ jwtExpired , setJwtExpired ] = useState(false)
 
 
   const Customer = useSelector((state) =>  state.user.email) ;
@@ -34,26 +33,33 @@ function App() {
 
   
 
+  const obj = {};
+
+  document.cookie.split(';').map(item => {
+    const [key, value] = item.split('=');
+    obj[key.trim()] = value.trim();
+  });
+
+
+  console.log('JWT in app retrieved from store',obj.jwt)
+  // if (obj.jwt)
+  //   store.dispatch(setJwt(obj.jwt))
+  // const jwwt = maybeJwt ? maybeJwt[1] : ""
   
+  // // jwt is found to be equal to "jwt=expiry date" right after deleting the cookie
+  // if (jwwt.length > jwt.length || jwt.split('=').length>1) {
+  //   store.dispatch(setJwt(jwwt))
+  // }
 
-
-  const maybeJwt = document.cookie.split("; ").map(element => element.split('=')).filter(element => element[0]==='jwt')[0]
-  const jwwt = maybeJwt ? maybeJwt[1] : ""
-  
-  // jwt is found to be equal to "jwt=expiry date" right after deleting the cookie
-  if (jwwt.length > jwt.length || jwt.split('=').length>1) {
-    store.dispatch(setJwt(jwwt))
-  }
-
-  const storedCart =  JSON.parse(window.localStorage.getItem('state')) 
-  if (cart?.length === 0 && storedCart?.length>0) {
-    store.dispatch(updateCart())
-  }
+  // const storedCart =  JSON.parse(window.localStorage.getItem('state')) 
+  // if (cart?.length === 0 && storedCart?.length>0) {
+  //   store.dispatch(updateCart())
+  // }
 
   useEffect(()=>{
-    setJwtExpired(jwt.includes('Jan 1970') || jwt.length<5)
-    console.log('JWT IN APP',jwt,jwtExpired)
+    obj?.jwt && store.dispatch(setJwt(obj?.jwt))
   },[jwt])
+
   return (
     <Router>
       <Routes>
@@ -63,9 +69,9 @@ function App() {
 
             <Route path="/apparel/:category/:productname/:id"  element={<Product id={Customer}  />} />
 
-            <Route path="/login" element={  jwt.length>5 ? <Navigate to='/' /> : <Login />  }    />
+            <Route path="/login" element={  jwt?.length>5 ? <Navigate to='/' /> : <Login />  }    />
 
-            <Route path="/profil"  element={  jwtExpired === false ?   <Profil /> : <Navigate to='/' /> } />
+            <Route path="/profil"  element={  jwt?.length>5 ?   <Profil /> : <Navigate to='/' /> } />
               
 
             <Route path="/register" element={ jwt?.length>5 ? <Navigate to='/' /> :  <Register />} />
