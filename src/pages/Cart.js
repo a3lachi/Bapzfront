@@ -73,7 +73,7 @@ const CartPro = styled.div`
 `
 const Mage = styled.div`
     display:"inline-block" ;
-    width:300px;
+    width:200px;
 `
 const Image = styled.img`
     height:200px;
@@ -84,7 +84,10 @@ const Image = styled.img`
 
 const Del = styled.div`
     display:"inline-block" ;
-    width:300px;
+    padding-top:10px;
+    width:40px;
+    right:0px;
+    position: absolute;
     
 `
 const styleDel = {
@@ -186,7 +189,7 @@ const Cart = () => {
                     <Qtti><b>Size : <span>{item.size}</span></b></Qtti>
 
                     </Info>
-                    {/* <Del  id={idx} onClick={removeItem} >< Br id={idx}  ><RemoveCircleOutlineIcon id={idx} style={styleDel} ></RemoveCircleOutlineIcon></Br></Del> */}
+                    <Del  id={idx} onClick={removeItem} ><img id={idx} width={20} src={process.env.PUBLIC_URL+'/bin.png'} style={styleDel} /></Del>
 
 
                 </CartProd>

@@ -52,7 +52,7 @@ const Commands = (props) => {
     },[])
 
     const handleClick = () => {
-        if (choseCmd.length<1)
+        if (choseCmd?.length<1)
             props.snd(false)
         else 
             setChoseCmd([])

@@ -65,6 +65,7 @@ const Filter = styled.div`
 const FilterTitle = styled.span`
   font-size: 20px;
   font-weight: 650;
+  padding-left:0px;
 `;
 
 const FilterColor = styled.div`
@@ -117,6 +118,8 @@ const Button = styled.button`
 
 const Colorz = styled.div`
   margin-top:5px;
+  width:100px;
+  text-align:center;
   
 `
 
@@ -240,7 +243,7 @@ const Product = (id) => {
                       <FilterContainer lassName='row' >
                         <FilterColor>
                         <div className='row' style={{position:"relative"}}>
-                              <FilterTitle key='rrr' >COLOR:</FilterTitle>
+                              <FilterTitle key='rrr' >COLOR :</FilterTitle>
                                 </div>
                               
                               <Colorz  id="wraplerz" className='row'>
@@ -261,7 +264,9 @@ const Product = (id) => {
                       </FilterContainer>
                       <AddContainer>
                           <AmountContainer>
+                              <img width={20} src={process.env.PUBLIC_URL+'/minus.png'}  onClick={() => handleQuantity("dec")}/>
                               <Amount>{quantity}</Amount>
+                              <img width={25} src={process.env.PUBLIC_URL+'/add.png'} onClick={() => handleQuantity("inc")}/>
                           </AmountContainer>
                           <Button onClick={addToCart}>ADD TO CART</Button>
                       </AddContainer>

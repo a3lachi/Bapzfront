@@ -62,6 +62,17 @@ const Containerrr = styled.div`
     flex-direction: column;
 `
 
+
+const Input = styled.input`
+
+`
+
+const Divider = styled.div`
+    height:4px;
+    width:300px;
+    background-color:black;
+`
+
 const Checkout = (products) => {
 
     // products = products.prods
@@ -142,8 +153,16 @@ const Checkout = (products) => {
                         <Wrapper>
                         <div style={{marginBottom:'20px'}}><b>MY ORDER</b></div>
                         
+                        { products?.map((elem,indx)=>(
+                            <Ellem><b>{elem.productname}</b> <Infos> <Mag src={elem.src} /> {elem.color} - {elem.size} - {elem.price} x{elem.quantity}</Infos><Divider style={{marginBottom:'30px'}} /></Ellem>
+                        ))}
+                        <Proced >
+                            ADDRESS : <div><Input onChange={(e)=>setAdress(e.target.value)} id={"cc"} placeholder="Address" style={{width:'220px'}} /></div>
+                        </Proced>
                         
                         <Proced >
+                        <div><Input onChange={(e)=>ccCheck(e)} id={"cc"} placeholder="Credit Card" style={{width:'220px'}} /></div>
+                        <div><Input onChange={(e)=>edCheck(e)} id={"cvv"} placeholder="Expiry Date" style={{width:'100px' , marginRight:'76px'}} /><span style={{width:'30px'}}></span> <Input onChange={(e)=>cvvCheck(e)} id={"cvv"} placeholder="CVV" style={{width:'40px'}} /></div>
                         <ul style={{marginTop:'10px'}}><button onClick={(e)=> setPay(true)}>PAY</button></ul>
                         </Proced>
                         </Wrapper>

@@ -65,7 +65,7 @@ const Success = (props) => {
         {!validpay && <> <div>WAIT WHILE WE PROCEED YOUR PAYMENT...</div>
         <img id='scc' alt="sucss" src='https://i.stack.imgur.com/ndqUb.gif'  /></>}
         
-        { validpay && <><div>CONGRATULATIONS. YOUR ORDER IS CONFIRMED. </div><div>YOU WILL RECEIVE AN INVOICE IN THIS EMAIL : <b> {email} </b></div></>}
+        { validpay && <><div>CONGRATULATIONS. YOUR ORDER IS CONFIRMED. </div><div>YOU WILL RECEIVE AN INVOICE IN YOUR EMAIL.</div></>}
         </Info>
         </Wrapper>
         </Container>
