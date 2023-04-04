@@ -5,13 +5,6 @@ import {Link} from 'react-router-dom';
 
 import {Local} from './constants'
 
-import {
-    Facebook,
-    Instagram,
-    MailOutline,
-    Room,
-    Twitter,
-  } from "@mui/icons-material";
 
 
 const Container = styled.div`
@@ -113,13 +106,13 @@ const Footer = () => {
                 </Desc>
                 <SocialContainer>
                     <SocialIcon color="none">
-                        <Facebook />
+                        {/* <Facebook /> */}
                     </SocialIcon>
                     <SocialIcon color="none">
-                        <Instagram />
+                        {/* <Instagram /> */}
                     </SocialIcon>
                     <SocialIcon color="none">
-                        <Twitter />
+                        {/* <Twitter /> */}
                     </SocialIcon>
                 </SocialContainer>
             </Left>
