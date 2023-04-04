@@ -20,6 +20,12 @@ const Wrapper = styled.div`
 const Elem = styled.div`
 
 `
+
+const Divide = styled.div`
+    height:4px;
+    width:400px;
+    background-color:black;
+`
 const Command = (props) => {
 
     const comnd = props.cmd
@@ -35,11 +41,14 @@ const Command = (props) => {
             <Wrapper>
             {
                 data.map((elem,indx)=>(
+                    <>
                     <Elem key={indx} >
                         <div>{elem[0]} </div>
                         <img style={{width:'50px'}} alt={""}  src={elem[1]} /> x {elem[4]}   -   Size {elem[3]}  -  {elem[2]}
-
+                        <Divide />
                     </Elem>
+                    
+                    </>
                 ))
             }
 

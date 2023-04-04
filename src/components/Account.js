@@ -39,7 +39,8 @@ const Account = (props) => {
     if (fetching === true ) {
         return (
             <div style={{minHeight:'200px'}}>
-                {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
+                <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
+
                 <EmptyCmds>Fetching</EmptyCmds>
             </div>
         )
@@ -48,7 +49,7 @@ const Account = (props) => {
         if (info?.length>1) {
             return(
                 <Container>
-                    {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
+                    <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                     <Wrapper>
                         <div style={{marginBottom:'10px'}} >EMAIL : {info[0]}</div>
                         <div style={{marginBottom:'10px'}} >PASSWORD : {info[1]}</div>
@@ -63,7 +64,7 @@ const Account = (props) => {
             )
         } else {
             return (<div style={{minHeight:'200px'}}>
-                {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
+                <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                 <EmptyCmds>Couldn't get your profile.</EmptyCmds>
                 </div>)
         } 

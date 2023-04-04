@@ -62,7 +62,7 @@ const Commands = (props) => {
     if (fetching ===true) {
         return (
             <div style={{minHeight:'400px'}}>
-                {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
+                <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                 <EmptyCmds>Fetching</EmptyCmds>
             </div>
         )
@@ -71,7 +71,8 @@ const Commands = (props) => {
         if (cmds?.length>0) {
             return(
                 <Container>
-                    {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
+                    {/* <ArrowBackIcon }/> */}
+                    <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                     <Wrapper>
                     {cmds?.length>0 && choseCmd?.length<1 && cmds?.map((elem,indx)=>(
                         <Comand id={indx} key={indx} onClick={(e)=>(Handleclick(e.target.id))} >
@@ -85,7 +86,7 @@ const Commands = (props) => {
             )
         } else {
             return (<div style={{minHeight:'400px'}}>
-                {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
+                <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                 <EmptyCmds>You have purshased nothing yet.</EmptyCmds>
                 </div>)
         } 
