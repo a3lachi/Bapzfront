@@ -38,7 +38,6 @@ const Command = (props) => {
                     <Elem key={indx} >
                         <div>{elem[0]} </div>
                         <img style={{width:'50px'}} alt={""}  src={elem[1]} /> x {elem[4]}   -   Size {elem[3]}  -  {elem[2]}
-                        <Divider />
 
                     </Elem>
                 ))

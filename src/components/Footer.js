@@ -131,10 +131,8 @@ const Footer = () => {
             <Right>
                 <Title>Keep in touch</Title>
                 <ContactItem>
-                    <Room style={{marginRight:"10px"}}/> 22 All. Alan Turing , Clermont-Ferrand 63000
                 </ContactItem>
                 <ContactItem>
-                    <MailOutline style={{marginRight:"10px"}} /> contact@bapz.io
                 </ContactItem>
             </Right>
             

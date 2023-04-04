@@ -229,9 +229,7 @@ const Product = (id) => {
               <Categories />
               <Wrapper>
                   <ImgContainer>
-                  {/* <KeyboardArrowLeftIcon onClick={leftImg}></KeyboardArrowLeftIcon> */}
                       <Image style={{width:"80%"}} src={apprimg} />
-                      {/* <KeyboardArrowRightIcon onClick={rightImg} ></KeyboardArrowRightIcon> */}
                   </ImgContainer>
                   <InfoContainer className='col'>
                       <Title className='row'>{data.productname}</Title>
@@ -261,9 +259,7 @@ const Product = (id) => {
                       </FilterContainer>
                       <AddContainer>
                           <AmountContainer>
-                              {/* <Remove onClick={() => handleQuantity("dec")}/> */}
                               <Amount>{quantity}</Amount>
-                              {/* <Add onClick={() => handleQuantity("inc")}/> */}
                           </AmountContainer>
                           <Button onClick={addToCart}>ADD TO CART</Button>
                       </AddContainer>

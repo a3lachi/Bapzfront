@@ -117,19 +117,12 @@ const ProductSmall = ({id,item,cat}) => {
             <Info id={id}>
                 <Link id={id} style={styleLink} to={ cat ? '/apparel/'+cat + "/" +item[0]+'/'+item[2]  : '/apparel/prd/' +item[0]+'/'+item[2] }>
                   <Icon id={id}> 
-                        /* <SearchOutlined style={{width:'15px'}} /> */
                   </Icon>
                 </Link>
                 
                 <Icon id={id}>
-                    /* <FavoriteBorderOutlined id={id}
-                      onClick={
-                        (e)=>{ e.stopPropagation() ; e.target.style.color==="red" 
-                            ? e.target.style.color="black" 
-                            : e.target.style.color="red" }
-                      }
-                      style={{width:'15px'}} 
-                    /> */
+                      
+                    
                 </Icon>
                 
             </Info> 
