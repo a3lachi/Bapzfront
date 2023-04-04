@@ -12,13 +12,13 @@ const Home = () => {
     return (
         <div className='col'>
             <Announcement />
-            {/* <Navbar />
+            <Navbar />
             <Categories />
             <Slider />
             <Products />
             <Announcement />
             <Newsletter/>
-            <Footer /> */}
+            <Footer />
         </div>
     )
 }
