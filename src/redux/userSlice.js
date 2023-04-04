@@ -34,12 +34,14 @@ const userSlice = createSlice({
       state.password=""
       document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     },
-    setCommand: (state,action) => { // after fetch  from database
+    setCommands: (state,action) => { // after fetch  from database
+      // state.commands = [...state.commands, action.payload]
       state.commands = action.payload
+      console.log('-------------------',action.payload)
     },
     addCommand : (state,action) => { // add to database
       // state.commands = [...state.commands, action.payload]
-      // state.commands = action.payload
+      
       
       const camds = action.payload.cmds
       const address = action.payload.adrs
@@ -71,6 +73,6 @@ const userSlice = createSlice({
 
 
 
-export const { logUser , badUser , newUser , updateUser , logOutUser , addCommand , setJwt , setCommand} = userSlice.actions ; 
+export const { logUser , badUser , newUser , updateUser , logOutUser , addCommand , setJwt , setCommand , setCommands} = userSlice.actions ; 
 export default userSlice.reducer ;
 

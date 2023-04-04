@@ -5,6 +5,10 @@ import { useEffect, useState } from 'react';
 import Command from './Command'
 import {Proxy} from '../components/constants'
 
+import { store } from '../redux/store'
+import {useDispatch} from "react-redux";
+
+import {setCommands} from '../redux/userSlice'
 
 
 const Container = styled.div`
@@ -18,6 +22,7 @@ const Wrapper = styled.div`
 
 const Comand = styled.div`
     padding-left:20px;
+    min-height:81.25px;
     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
     margin-bottom:10px;
     &:hover {
@@ -35,7 +40,7 @@ const EmptyCmds = styled.div`
 const Commands = (props) => {
     const jwwt = useSelector((state) =>  state.user.jwt)
 
-    const [ cmds , setCmds] = useState([])
+    const cmds = useSelector((state) =>  state.user.commands)
 
     const [ choseCmd , setChoseCmd ] = useState([])
 
@@ -47,12 +52,15 @@ const Commands = (props) => {
         console.log('haaaaaaa',target.id,chouz)
         setChoseCmd(chouz)
     }
+    const dispatch = useDispatch() ;
 
     useEffect(()=>{
-        axios.post(`${Proxy}/api/customer/token`,{jwt:jwwt})
-        .then((res)=> {setCmds(res.data.data);setFetching(false)})
-        .catch((err) => console.log("Error during fetching customer profil data.",err) )
-    },[])
+        if (cmds.length === 0) {
+            axios.post(`${Proxy}/api/customer/token`,{jwt:jwwt})
+            .then((res)=> {setFetching(false);console.log(res.data.data);store.dispatch(setCommands(res.data.data))})
+            .catch((err) => console.log("Error during fetching customer profil data.",err) )
+        }
+    },[jwwt])
 
     const handleClick = () => {
         if (choseCmd?.length<1)
@@ -60,7 +68,7 @@ const Commands = (props) => {
         else 
             setChoseCmd([])
     }
-
+    console.log('@@@@@@@@@@@@@@@@',cmds)
     if (fetching ===true) {
         return (
             <div style={{minHeight:'400px'}}>
