@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 import { mobile } from '../responsive';
 import {Link} from 'react-router-dom';
-import {   ShoppingCartOutlined } from '@mui/icons-material';
-import { Badge } from '@mui/material';
 import { useSelector } from "react-redux";
 
-import {useLocation} from "react-router-dom";
 import {Local} from './constants'
 
 
@@ -107,9 +104,9 @@ const Navbar = () => {
                 </Link></> }
                 <Link style={styleLink} to="/cart">
                     <MenuItem>
-                        <Badge color="primary" badgeContent={itms.length }>
-                            <ShoppingCartOutlined />
-                        </Badge>
+                        {/* <Badge color="primary" badgeContent={itms.length }> */}
+                            {/* <ShoppingCartOutlined /> */}
+                        {/* </Badge> */}
                     </MenuItem>
                 </Link>
                 </Right>

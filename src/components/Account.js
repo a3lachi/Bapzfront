@@ -1,4 +1,3 @@
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios'
@@ -40,7 +39,7 @@ const Account = (props) => {
     if (fetching === true ) {
         return (
             <div style={{minHeight:'200px'}}>
-                <ArrowBackIcon onClick={()=>handleClick()}/>
+                {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
                 <EmptyCmds>Fetching</EmptyCmds>
             </div>
         )
@@ -49,7 +48,7 @@ const Account = (props) => {
         if (info?.length>1) {
             return(
                 <Container>
-                    <ArrowBackIcon onClick={()=>handleClick()}/>
+                    {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
                     <Wrapper>
                         <div style={{marginBottom:'10px'}} >EMAIL : {info[0]}</div>
                         <div style={{marginBottom:'10px'}} >PASSWORD : {info[1]}</div>
@@ -64,7 +63,7 @@ const Account = (props) => {
             )
         } else {
             return (<div style={{minHeight:'200px'}}>
-                <ArrowBackIcon onClick={()=>handleClick()}/>
+                {/* <ArrowBackIcon onClick={()=>handleClick()}/> */}
                 <EmptyCmds>Couldn't get your profile.</EmptyCmds>
                 </div>)
         } 

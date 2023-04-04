@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Add, Remove } from '@mui/icons-material';
 import styled from 'styled-components';
 import Announcement from '../components/Announcement';
 import Categories from '../components/Categories';
@@ -10,8 +9,6 @@ import { mobile } from "../responsive";
 import {useLocation} from "react-router-dom";
 import { addOne } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 import axios from 'axios'
 
@@ -232,9 +229,9 @@ const Product = (id) => {
               <Categories />
               <Wrapper>
                   <ImgContainer>
-                  <KeyboardArrowLeftIcon onClick={leftImg}></KeyboardArrowLeftIcon>
+                  {/* <KeyboardArrowLeftIcon onClick={leftImg}></KeyboardArrowLeftIcon> */}
                       <Image style={{width:"80%"}} src={apprimg} />
-                      <KeyboardArrowRightIcon onClick={rightImg} ></KeyboardArrowRightIcon>
+                      {/* <KeyboardArrowRightIcon onClick={rightImg} ></KeyboardArrowRightIcon> */}
                   </ImgContainer>
                   <InfoContainer className='col'>
                       <Title className='row'>{data.productname}</Title>
@@ -264,9 +261,9 @@ const Product = (id) => {
                       </FilterContainer>
                       <AddContainer>
                           <AmountContainer>
-                              <Remove onClick={() => handleQuantity("dec")}/>
+                              {/* <Remove onClick={() => handleQuantity("dec")}/> */}
                               <Amount>{quantity}</Amount>
-                              <Add onClick={() => handleQuantity("inc")}/>
+                              {/* <Add onClick={() => handleQuantity("inc")}/> */}
                           </AmountContainer>
                           <Button onClick={addToCart}>ADD TO CART</Button>
                       </AddContainer>

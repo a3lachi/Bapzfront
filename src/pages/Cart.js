@@ -7,9 +7,6 @@ import { useState } from 'react'
 
 import styled from "styled-components"
 import { mobile } from '../responsive';
-
-import RemoveCircleOutlineIcon  from '@mui/icons-material/RemoveCircleOutline';
-
 import { store } from '../redux/store'
 import {  delCart  , updateQtty } from '../redux/cartSlice';
 import { Navigate } from 'react-router-dom';
@@ -189,7 +186,7 @@ const Cart = () => {
                     <Qtti><b>Size : <span>{item.size}</span></b></Qtti>
 
                     </Info>
-                    <Del  id={idx} onClick={removeItem} >< Br id={idx}  ><RemoveCircleOutlineIcon id={idx} style={styleDel} ></RemoveCircleOutlineIcon></Br></Del>
+                    {/* <Del  id={idx} onClick={removeItem} >< Br id={idx}  ><RemoveCircleOutlineIcon id={idx} style={styleDel} ></RemoveCircleOutlineIcon></Br></Del> */}
 
 
                 </CartProd>

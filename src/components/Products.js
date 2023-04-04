@@ -1,4 +1,3 @@
-import FilterListIcon from '@mui/icons-material/FilterList';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
@@ -54,7 +53,7 @@ const Products = ({cat, filters}) =>{
                 {cat 
                 ? <>
                     <SelectModes id='yty'>
-                        <div style={{ fontSize:'15px'}}  >Price <FilterListIcon style={{ cursor:'pointer' , transform: `${sortDirec}` }} onClick={sortByPrice} /></div> 
+                        {/* <div style={{ fontSize:'15px'}}  >Price <FilterListIcon style={{ cursor:'pointer' , transform: `${sortDirec}` }} onClick={sortByPrice} /></div>  */}
 
                     </SelectModes>
                 
