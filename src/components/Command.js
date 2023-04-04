@@ -27,34 +27,33 @@ const Divide = styled.div`
     background-color:black;
 `
 const Command = (props) => {
+    if (props?.cmd?.length>1) {
+        const comnd = props.cmd
 
-    const comnd = props.cmd
+        const data = comnd[1]
+        return (
+            <Container>
+                <div>Date : {comnd[0]}</div>
+                <div>Address : {comnd[2]} </div>
+                <Wrapper>
+                {
+                    data.map((elem,indx)=>(
+                        <Elem key={indx} >
+                            <div key={indx}>{elem[0]} </div>
+                            <img key={indx+1} style={{width:'50px'}} alt={""}  src={elem[1]} /> x {elem[4]}   -   Size {elem[3]}  -  {elem[2]}
+                            <Divide />
 
-    const data = comnd[1]
+                        </Elem>
+                    ))
+                }
 
-
-
-    return (
-        <Container>
-            <div>Date : {comnd[0]}</div>
-            <div>Address : {comnd[2]} </div>
-            <Wrapper>
-            {
-                data.map((elem,indx)=>(
-                    <>
-                    <Elem key={indx} >
-                        <div>{elem[0]} </div>
-                        <img style={{width:'50px'}} alt={""}  src={elem[1]} /> x {elem[4]}   -   Size {elem[3]}  -  {elem[2]}
-                        <Divide />
-                    </Elem>
-                    
-                    </>
-                ))
-            }
-
-            </Wrapper>
-        </Container>
-    )
+                </Wrapper>
+            </Container>
+        )
+    }
+    else{
+        console.log('Props undefined.')
+    }
 }
 
 

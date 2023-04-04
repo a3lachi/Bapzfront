@@ -35,14 +35,17 @@ const EmptyCmds = styled.div`
 const Commands = (props) => {
     const jwwt = useSelector((state) =>  state.user.jwt)
 
-    const [ cmds , setCmds] = useState("")
+    const [ cmds , setCmds] = useState([])
 
     const [ choseCmd , setChoseCmd ] = useState([])
 
     const [ fetching , setFetching ] = useState(true)
 
-    const Handleclick = (id) => {
-        setChoseCmd(cmds[id])
+    const Haandleclick = (target) => {
+        
+        const chouz = cmds[Number(target.id)]
+        console.log('haaaaaaa',target.id,chouz)
+        setChoseCmd(chouz)
     }
 
     useEffect(()=>{
@@ -58,7 +61,6 @@ const Commands = (props) => {
             setChoseCmd([])
     }
 
-    console.log('HAMAWSSL',cmds)
     if (fetching ===true) {
         return (
             <div style={{minHeight:'400px'}}>
@@ -68,22 +70,33 @@ const Commands = (props) => {
         )
     }
     else {
-        if (cmds?.length>0 && typeof cmds === 'object') {
-            return(
-                <Container>
-                    {/* <ArrowBackIcon }/> */}
-                    <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
-                    <Wrapper>
-                    {cmds?.length>0 && choseCmd?.length<1 && cmds.map((elem,indx)=>(
-                        <Comand id={indx} key={indx} onClick={(e)=>(Handleclick(e.target.id))} >
-                        Command passed on {elem[0]} :
-                        { elem[1]?.map((el,indx)=>(<img key={indx} alt={""} style={{width:'65px', height:'auto' , mixBlendMode: 'multiply'}} src={el[1]}/>)) }
-                        </Comand>
-                    ))}
-                    </Wrapper>
-                    { choseCmd?.length>1 && <Command cmd={choseCmd} />}
-                </Container>
-            )
+        if (cmds?.length>0) {
+            if (choseCmd?.length===0) {
+                return(
+                    <Container>
+                        <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
+                        <Wrapper>
+                        { cmds.map((elem,indx)=>(
+                            <Comand id={indx} key={indx} onClick={(e)=>{Haandleclick(e.target) ;}} >
+                            Command passed on {elem[0]} {indx}:
+                            { elem[1]?.map((el,inddx)=>(<img key={inddx} id={indx} alt={""} style={{width:'65px', height:'auto' , mixBlendMode: 'multiply'}} src={el[1]}/>)) }
+                            </Comand>
+                        ))}
+                        </Wrapper>
+                    </Container>
+                )
+            }
+            else {
+                return (
+                    <Container>
+                        <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
+                        <Wrapper>
+                        
+                        </Wrapper>
+                        <Command cmd={choseCmd} />
+                    </Container>
+                )
+            }
         } else {
             return (<div style={{minHeight:'400px'}}>
                 <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
