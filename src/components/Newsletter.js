@@ -8,6 +8,7 @@ const Container = styled.div`
     background-color: rgb(89,100,54,0.4);
     display: flex;
     align-items: center;
+    text-align:center;
     justify-content: center;
     flex-direction: column;
     ${mobile({ display: "none" })}
@@ -34,6 +35,7 @@ const Desc = styled.div`
 `;
 
 const InputContainer = styled.div`
+    padding:0px;
     width: 50%;
     height: 40px;
     background-color: white;
@@ -47,7 +49,7 @@ const InputContainer = styled.div`
 const Input = styled.input`
     border: none;
     flex: 8;
-    padding-left: 20px;
+    padding-left:20px;
 `;
 
 const Button = styled.button`
@@ -66,7 +68,7 @@ const Newsletter = () => {
             <InputContainer>
                 <Input placeholder="Your email" />
                 <Button>
-                    {/* <Send/> */}
+                    <img height={30} src={process.env.PUBLIC_URL + '/send.png'} />
                 </Button>
             </InputContainer>
         </Container>

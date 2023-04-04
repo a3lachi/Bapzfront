@@ -117,12 +117,17 @@ const ProductSmall = ({id,item,cat}) => {
             <Info id={id}>
                 <Link id={id} style={styleLink} to={ cat ? '/apparel/'+cat + "/" +item[0]+'/'+item[2]  : '/apparel/prd/' +item[0]+'/'+item[2] }>
                   <Icon id={id}> 
+                    <img width={18} src={process.env.PUBLIC_URL +'/search.png'} />
                   </Icon>
                 </Link>
                 
-                <Icon id={id}>
+                <Icon id={id+'4'}>
                       
-                    
+                <img width={15} src={process.env.PUBLIC_URL +'/heart.png'} />
+                </Icon>
+                <Icon id={id+'5'}>
+                      
+                <img width={15} src={process.env.PUBLIC_URL +'/cartt.png'} />
                 </Icon>
                 
             </Info> 

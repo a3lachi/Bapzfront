@@ -81,10 +81,6 @@ const Navbar = () => {
             <Wrapper>
                 <Left>
                     <Language>EN</Language>
-                    {/* <SearchContainer>
-                        <Input placeholder="Search"/>
-                        <Search style={{ color:"gray", fontSize: "16px" }} />
-                    </SearchContainer> */}
                 </Left>
                 <Center>
                     <Link style={styleLink} to='/'>
@@ -104,9 +100,7 @@ const Navbar = () => {
                 </Link></> }
                 <Link style={styleLink} to="/cart">
                     <MenuItem>
-                        {/* <Badge color="primary" badgeContent={itms.length }> */}
-                            {/* <ShoppingCartOutlined /> */}
-                        {/* </Badge> */}
+                        <img width={30} src={process.env.PUBLIC_URL +  '/cart.png'}/>
                     </MenuItem>
                 </Link>
                 </Right>

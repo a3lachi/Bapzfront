@@ -106,13 +106,13 @@ const Footer = () => {
                 </Desc>
                 <SocialContainer>
                     <SocialIcon color="none">
-                        {/* <Facebook /> */}
+                    <img width={30} src={process.env.PUBLIC_URL+'/twt.svg'} />
                     </SocialIcon>
                     <SocialIcon color="none">
-                        {/* <Instagram /> */}
+                        <img width={30} src={process.env.PUBLIC_URL+'/ig.svg'} />
                     </SocialIcon>
                     <SocialIcon color="none">
-                        {/* <Twitter /> */}
+                    <img width={30} src={process.env.PUBLIC_URL+'/fb.svg'} />
                     </SocialIcon>
                 </SocialContainer>
             </Left>

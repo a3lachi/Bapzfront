@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 const Container = styled.div`
         
-        height: 25px;
-        background-color : black ;        
-        position:relative;
+    height: 25px;
+    background-color : black ;        
+    position:relative;
+    text-align:center;
 `
 
 const Text = styled.div`
