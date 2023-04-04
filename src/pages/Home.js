@@ -15,7 +15,6 @@ const Home = () => {
             <Navbar />
             <Categories />
             <Slider />
-            
             <Products />
             <Announcement />
             <Newsletter/>
