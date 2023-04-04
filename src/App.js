@@ -59,7 +59,7 @@ function App() {
       <Routes>
             <Route exact path="/"  element={<Home id={Customer} />} />
 
-            {/* <Route path="/apparel/:category"  element={<ProductsPage id={Customer}  />} />
+            <Route path="/apparel/:category"  element={<ProductsPage id={Customer}  />} />
 
             <Route path="/apparel/:category/:productname/:id"  element={<Product id={Customer}  />} />
 
@@ -72,7 +72,7 @@ function App() {
 
             <Route path="/cart" element={ <Cart id={Customer}  />} />
 
-            <Route path="/checkout" element={ <Checkout prods={cart}  /> } /> */}
+            <Route path="/checkout" element={ <Checkout prods={cart}  /> } />
         </Routes>
     </Router>
   );
