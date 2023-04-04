@@ -70,11 +70,25 @@ const styleLink = {
     color: "#874800" ,    
 }
 
+const Carta = styled.div`
+    
+    background-color: #0085ff;
+    border-radius: 40px;
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    text-align: center;
+    color:white;
+`
+
 
 const Navbar = () => {
 
     var itms = useSelector((state) =>  state.cart.itms)
-    const jwtExist = useSelector((state) =>  state.user.jwt)    
+    const jwtExist = useSelector((state) =>  state.user.jwt) 
+
+
+    const len = 2 ;
     
     return (
         <Container >
@@ -98,11 +112,22 @@ const Navbar = () => {
                 <Link style={styleLink} to="/login">
                     <MenuItem>SIGN IN</MenuItem>
                 </Link></> }
+                
                 <Link style={styleLink} to="/cart">
+                
                     <MenuItem>
-                        <img width={30} src={process.env.PUBLIC_URL +  '/cart.png'}/>
+                        <div>
+                            <img width={30} src={process.env.PUBLIC_URL +  '/cart.png'}/>
+
+                            { itms?.length>0 &&  <Carta style={{width:'20px',height:'20px'}} className='carta' >
+                                <div>{itms?.length}</div>
+                            </Carta>}
+                            
+                        </div>
+                        
                     </MenuItem>
                 </Link>
+                
                 </Right>
             </Wrapper>
         </Container>

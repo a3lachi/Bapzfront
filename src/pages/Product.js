@@ -224,8 +224,10 @@ const Product = (id) => {
       
       return (
           <Container>
+              <Announcement />
               <Navbar id="brr" />
-              <Announcement/>
+              
+
               <Categories />
               <Wrapper>
                   <ImgContainer>

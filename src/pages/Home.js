@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 const Home = () => {
     return (
         <div className='col'>
-            <Announcement />
+            <Announcement style={{marginBottom:'auto'}} />
             <Navbar />
             <Categories />
             <Slider />
