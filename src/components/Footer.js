@@ -106,13 +106,13 @@ const Footer = () => {
                 </Desc>
                 <SocialContainer>
                     <SocialIcon color="none">
-                    <img width={30} src={process.env.PUBLIC_URL+'/twt.svg'} />
+                    <img width={20} src={process.env.PUBLIC_URL+'/twt.svg'} />
                     </SocialIcon>
                     <SocialIcon color="none">
-                        <img width={30} src={process.env.PUBLIC_URL+'/ig.svg'} />
+                        <img width={20} src={process.env.PUBLIC_URL+'/ig.svg'} />
                     </SocialIcon>
                     <SocialIcon color="none">
-                    <img width={30} src={process.env.PUBLIC_URL+'/fb.svg'} />
+                    <img width={20} src={process.env.PUBLIC_URL+'/fb.svg'} />
                     </SocialIcon>
                 </SocialContainer>
             </Left>
@@ -131,11 +131,11 @@ const Footer = () => {
             <Right>
                 <Title>Keep in touch</Title>
                 <ContactItem>
-                    <img width={35} src={process.env.PUBLIC_URL +'/mail.png'} />
+                    <img width={25} src={process.env.PUBLIC_URL +'/mail.png'} />
                     <div style={{marginLeft:'20px'}}>contact@bapz.io</div>
                 </ContactItem>
                 <ContactItem>
-                <img width={35} src={process.env.PUBLIC_URL +'/location.png'} />
+                <img width={25} src={process.env.PUBLIC_URL +'/location.png'} />
                 <div style={{marginLeft:'20px'}}>47 Michel Alien, Pont Kong, Mars</div>
                 </ContactItem>
             </Right>
