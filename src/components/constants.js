@@ -3,8 +3,7 @@
 
 
 
-export const Proxy = window.location.host
+export const Proxy = 'https://bapzend.vercel.app'
 
 
-
-export const Local = 'http://localhost:3001'
+export const Local = window.location.hostname === 'localhost' ? `http://${window.location.host}` : window.location.host
