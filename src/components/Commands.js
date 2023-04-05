@@ -38,37 +38,46 @@ const EmptyCmds = styled.div`
 
 
 const Commands = (props) => {
-    const jwwt = useSelector((state) =>  state.user.jwt)
 
+    // grab jwt 
+    const jwt = useSelector((state) =>  state.user.jwt)
+
+    // grab user commands
     const cmds = useSelector((state) =>  state.user.commands)
 
+    // render indice
     const [ choseCmd , setChoseCmd ] = useState([])
 
-    const [ fetching , setFetching ] = useState(true)
+    // first fetch
+    const [ fetching , setFetching ] = useState(cmds.length === 0)
 
-    const Haandleclick = (target) => {
-        
-        const chouz = cmds[Number(target.id)]
-        console.log('haaaaaaa',target.id,chouz)
-        setChoseCmd(chouz)
+    // choose command
+    const chooseCommand = (target) => {
+        const renderCommand = cmds[Number(target.id)]
+        setChoseCmd(renderCommand)
     }
-    const dispatch = useDispatch() ;
-
-    useEffect(()=>{
-        if (cmds.length === 0) {
-            axios.post(`${Proxy}/api/customer/token`,{jwt:jwwt})
-            .then((res)=> {setFetching(false);console.log(res.data.data);store.dispatch(setCommands(res.data.data))})
+    
+    // fetch
+    cmds.length === 0
+    && axios
+            .post(`${Proxy}/api/customer/token`,{jwt:jwt,info:'cmds'})
+            .then((res)=> {setFetching(false); store.dispatch(setCommands(res.data.data))})
             .catch((err) => console.log("Error during fetching customer profil data.",err) )
-        }
-    },[jwwt])
 
+
+    // render go back
     const handleClick = () => {
         if (choseCmd?.length<1)
             props.snd(false)
         else 
             setChoseCmd([])
     }
-    console.log('@@@@@@@@@@@@@@@@',cmds)
+
+
+
+
+
+    // fetching ...
     if (fetching ===true) {
         return (
             <div style={{minHeight:'400px'}}>
@@ -80,12 +89,13 @@ const Commands = (props) => {
     else {
         if (cmds?.length>0) {
             if (choseCmd?.length===0) {
+                // list of commands
                 return(
                     <Container>
                         <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                         <Wrapper>
                         { cmds.map((elem,indx)=>(
-                            <Comand id={indx} key={indx} onClick={(e)=>{Haandleclick(e.target) ;}} >
+                            <Comand id={indx} key={indx} onClick={(e)=>{chooseCommand(e.target) ;}} >
                             Command passed on {elem[0]} {indx}:
                             { elem[1]?.map((el,inddx)=>(<img key={inddx} id={indx} alt={""} style={{width:'65px', height:'auto' , mixBlendMode: 'multiply'}} src={el[1]}/>)) }
                             </Comand>
@@ -96,6 +106,7 @@ const Commands = (props) => {
             }
             else {
                 return (
+                    // chosen command
                     <Container>
                         <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                         <Wrapper>
@@ -106,6 +117,7 @@ const Commands = (props) => {
                 )
             }
         } else {
+            // empty commands list
             return (<div style={{minHeight:'400px'}}>
                 <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                 <EmptyCmds>You have purshased nothing yet.</EmptyCmds>

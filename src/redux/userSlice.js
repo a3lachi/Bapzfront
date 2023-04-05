@@ -7,7 +7,10 @@ const userSlice = createSlice({
   name:"user",
   initialState:{
     email:"",
-    password:"",
+    pwd:"",
+    firstname:"",
+    lastname:"",
+    username:"",
     badAttempt:false,
     jwt:"",
     commands:[],
@@ -39,6 +42,15 @@ const userSlice = createSlice({
       state.commands = action.payload
       console.log('-------------------',action.payload)
     },
+    setCustomerAccountData: (state,action) => {
+      console.log('MAWSSL LSTORE',action.payload)
+      state.email = action.payload[0]
+      state.pwd = action.payload[1]
+      state.firstname = action.payload[2]
+      state.lastname = action.payload[3]
+      state.username = action.payload[4]
+    }
+    ,
     addCommand : (state,action) => { // add to database
       // state.commands = [...state.commands, action.payload]
       
@@ -73,6 +85,6 @@ const userSlice = createSlice({
 
 
 
-export const { logUser , badUser , newUser , updateUser , logOutUser , addCommand , setJwt , setCommand , setCommands} = userSlice.actions ; 
+export const { logUser , badUser , newUser , updateUser , logOutUser , addCommand , setJwt , setCommand , setCommands , setCustomerAccountData} = userSlice.actions ; 
 export default userSlice.reducer ;
 

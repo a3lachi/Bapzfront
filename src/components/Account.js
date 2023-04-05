@@ -1,8 +1,10 @@
+import { store } from '../redux/store'
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios'
 import { useSelector } from 'react-redux';
 import {Proxy} from '../components/constants'
+import { setCustomerAccountData } from '../redux/userSlice'
 
 const Container = styled.div`
     
@@ -20,42 +22,49 @@ const EmptyCmds = styled.div`
 
 const Account = (props) => {
 
-    const [ fetching , setFetching ] = useState(true)
+    // get user infos from store to update 
+    const customer = useSelector(state => state.user) 
+    console.log('USER EMAIL',customer.email)
 
-    const jwwt = useSelector((state) =>  (state.user.jwt)) ;
-    const handleClick = () => {
+    // fetchinf indice
+    const [ fetching , setFetching ] = useState(customer.email.length === 0)
+
+    // get jwt from store 
+    const jwt = customer.jwt //useSelector((state) =>  (state.user.jwt)) ;
+    
+    // go back in render
+    const renderBack = () => {
         props.snd(false)
     }
 
-    const [ info , setInfo ] = useState([])
-    console.log(info)
-    useEffect(()=>{
-        axios.post(`${Proxy}/api/customer/token`,{jwt:jwwt})
-        .then((res)=> {setInfo(res.data.info) ; setFetching(false)})
+    // fetch for user info
+    customer.email.length === 0 
+    && axios
+        .post(`${Proxy}/api/customer/token`,{jwt:jwt,info:'account'})
+        .then((res)=> {console.log('INFO LI WSSLO',res.data.info) ; store.dispatch(setCustomerAccountData(res.data.info)) ; setFetching(false)})
         .catch((err) => console.log("Error during fetching customer profil data.",err) )
-    },[])
-    // info?.length===0 && 
+
 
     if (fetching === true ) {
         return (
             <div style={{minHeight:'200px'}}>
-                <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
+                <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>renderBack()} />
 
                 <EmptyCmds>Fetching</EmptyCmds>
             </div>
         )
     }
     else {
-        if (info?.length>0) {
+        if (customer?.email?.length>0) {
             return(
                 <Container>
-                    <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
+                    <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>renderBack()} />
                     <Wrapper>
-                        <div style={{marginBottom:'10px'}} >EMAIL : {info[0]}</div>
-                        <div style={{marginBottom:'10px'}} >PASSWORD : {info[1]}</div>
-                        <div style={{marginBottom:'10px'}} >USERNAME : {info[4]}</div>
-                        <div style={{marginBottom:'10px'}} >FIRST NAME : {info[2]}</div>
-                        <div style={{marginBottom:'10px'}} >LAST NAME : {info[3]}</div>
+                        <div style={{marginBottom:'10px'}} >EMAIL : {customer.email}</div>
+                        <div style={{marginBottom:'10px'}} >PASSWORD : {customer.password}</div>
+                        <div style={{marginBottom:'10px'}} >USERNAME : {customer.username}</div>
+                        <div style={{marginBottom:'10px'}} >FIRST NAME : {customer.firstname}</div>
+                        <div style={{marginBottom:'10px'}} >LAST NAME : {customer.lastname}</div>
 
 
                     </Wrapper>
@@ -64,7 +73,7 @@ const Account = (props) => {
             )
         } else {
             return (<div style={{minHeight:'200px'}}>
-                <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
+                <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>renderBack()} />
                 <EmptyCmds>Couldn't get your profile.</EmptyCmds>
                 </div>)
         } 
