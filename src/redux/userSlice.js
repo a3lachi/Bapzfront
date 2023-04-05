@@ -42,7 +42,7 @@ const userSlice = createSlice({
       state.firstname=""
       state.lastname=""
       state.username=""
-      document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      localStorage.removeItem("jwt");
     },
     setCommands: (state,action) => { // after fetch  from database
       // state.commands = [...state.commands, action.payload]
@@ -85,9 +85,8 @@ const userSlice = createSlice({
       }
     },
     setJwt : (state,action) => {
-      console.log('setJwt : inside store',action.payload,action.payload.length)
       state.jwt = action.payload
-      document.cookie = "jwt="+action.payload+";"
+      localStorage.setItem("jwt", action.payload);
     }
   }
 })

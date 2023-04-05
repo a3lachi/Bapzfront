@@ -5,6 +5,8 @@ import Success from '../components/Success'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { mobile , tablet } from '../responsive';
+import Announcement from '../components/Announcement';
+
 
 
 
@@ -147,7 +149,9 @@ const Checkout = (products) => {
                 if (products.length>0) {
                     return (
                         <Containerrr>
+                        <Announcement />
                         <Navbar />
+
                         
                         <Container>
                         <Wrapper>
@@ -173,6 +177,7 @@ const Checkout = (products) => {
                 } else {
                     return (
                         <Containerrr>
+                        <Announcement />
                         <Navbar />
                         
                         <Container>
@@ -187,6 +192,7 @@ const Checkout = (products) => {
             else {
                 return(
                     <Containerrr>
+                    <Announcement />
                     <Navbar />
                     <Success adrs={address} />
                     <Footer />
@@ -197,6 +203,7 @@ const Checkout = (products) => {
         else {
             return(
                 <Containerrr>
+                    <Announcement />
                     <Navbar />
                     <Container>
                         <Wrapper>

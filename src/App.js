@@ -30,6 +30,12 @@ function App() {
   var cart = useSelector((state) =>  state.cart.itms)
 
   const jwt = useSelector((state) =>  state.user.jwt)
+  
+
+  if (jwt.length === 0 && localStorage.getItem('jwt').length > 0   )
+  {
+    store.dispatch(setJwt(localStorage.getItem('jwt')))
+  }
 
   
 
