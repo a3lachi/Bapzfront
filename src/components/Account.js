@@ -8,11 +8,12 @@ import { setCustomerAccountData } from '../redux/userSlice'
 
 const Container = styled.div`
     
-
+    margin-bottom:40px;
 `
 const Wrapper = styled.div`
     padding-top:20px;
     height: 100%;
+    padding-left:40px;
 `
 const EmptyCmds = styled.div`
     padding: 10px 10px 10px 10px;
