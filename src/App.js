@@ -42,6 +42,7 @@ function App() {
     store.dispatch(updateCart())
   }
 
+  console.log('brrrrr',jwt,jwt.length)
 
 
   return (

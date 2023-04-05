@@ -184,7 +184,7 @@ const Cart = () => {
                     <Info key={idx} >
                     <Name key={idx} >{item.productname}</Name>
                     <Color><Ler> {item.color} </Ler> </Color>
-                    <Price>{item.price}</Price>
+                    <Price><b>US${item.price}</b></Price>
                     <Qtti><b>Quantity : <span>{item.quantity}</span></b></Qtti>
                     <Qtti><b>Size : <span>{item.size}</span></b></Qtti>
 

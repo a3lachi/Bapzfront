@@ -38,7 +38,7 @@ const Account = (props) => {
     }
 
     // fetch for user info
-    customer.email.length === 0 
+    customer.username.length === 0 
     && axios
         .post(`${Proxy}/api/customer/token`,{jwt:jwt,info:'account'})
         .then((res)=> {console.log('INFO LI WSSLO',res.data.info) ; store.dispatch(setCustomerAccountData(res.data.info)) ; setFetching(false)})

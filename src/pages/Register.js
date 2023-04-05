@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux";
 import { setCustomerAccountData , badUser , setJwt } from "../redux/userSlice";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
+import Announcement from '../components/Announcement';
 
 import styled from "styled-components";
 import { mobile } from "../responsive";
@@ -129,6 +130,7 @@ const Register = () => {
   },[pwd,password])
   return (
     <Containerrr>
+    <Announcement />
     <Navbar></Navbar>
     <Container>
       <Wrapper>

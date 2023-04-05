@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { logUser , badUser , setJwt} from "../redux/userSlice";
 import Navbar from '../components/Navbar';
 import {Proxy} from '../components/constants'
+import Announcement from '../components/Announcement';
 
 
 const Container = styled.div`
@@ -131,6 +132,7 @@ const Login = () => {
 
   return (
     <>
+    <Announcement />
     <Navbar></Navbar>
     <Container>
       <Wrapper>
