@@ -42,8 +42,7 @@ const Products = ({cat, filters}) =>{
         }
     }
         
-    const sortDirec = sort>0 ? "rotate(0deg)" : "rotate(180deg)"
-    
+    const sortDirec = sort>0 ? "rotate(0deg)" : "rotate(180deg)"    
     if(data) {
         return(
             <>

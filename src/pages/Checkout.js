@@ -158,7 +158,7 @@ const Checkout = (products) => {
                         <div style={{marginBottom:'20px'}}><b>MY ORDER</b></div>
                         
                         { products?.map((elem,indx)=>(
-                            <Ellem><b>{elem.productname}</b> <Infos> <Mag src={elem.src} /> {elem.color} - {elem.size} - {elem.price} x{elem.quantity}</Infos><Divider style={{marginBottom:'30px'}} /></Ellem>
+                            <Ellem key={indx} ><b>{elem.productname}</b> <Infos> <Mag src={elem.src} /> {elem.color} - {elem.size} - {elem.price} x{elem.quantity}</Infos><Divider style={{marginBottom:'30px'}} /></Ellem>
                         ))}
                         <Proced >
                             ADDRESS : <div><Input onChange={(e)=>setAdress(e.target.value)} id={"cc"} placeholder="Address" style={{width:'220px'}} /></div>

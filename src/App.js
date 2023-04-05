@@ -37,6 +37,11 @@ function App() {
     store.dispatch(setJwt(localStorage.getItem('jwt')))
   }
 
+  if ( cart?.length === 0 && window.localStorage.getItem('state')?.length > 0  )
+  {
+    store.dispatch(updateCart())
+  }
+
 
 
   return (

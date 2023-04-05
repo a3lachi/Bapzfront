@@ -1,3 +1,5 @@
+import { store } from '../redux/store'
+import { addOne } from '../redux/cartSlice'
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
@@ -125,7 +127,7 @@ const ProductSmall = ({id,item,cat}) => {
                       
                 <img width={15} src={process.env.PUBLIC_URL +'/heart.png'} />
                 </Icon>
-                <Icon id={id+'5'}>
+                <Icon id={id+'5'}   onClick={()=>store.dispatch(addOne({src:item[1][0], productname:item[0] , price:item[3] , quantity:1, color:item[4], size:'L' , ids:item[2]}))}   >
                       
                 <img width={15} src={process.env.PUBLIC_URL +'/cartt.png'} />
                 </Icon>

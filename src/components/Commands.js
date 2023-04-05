@@ -97,7 +97,7 @@ const Commands = (props) => {
                     <Container>
                         <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />
                         <Wrapper>
-                        { cmds.map((elem,indx)=>(
+                        { cmds?.map((elem,indx)=>(
                             <Comand id={indx} key={indx} onClick={(e)=>{chooseCommand(e.target) ;}} >
                             Command passed on {elem[0]} {indx}:
                             { elem[1]?.map((el,inddx)=>(<img key={inddx} id={indx} alt={""} style={{width:'65px', height:'auto' , mixBlendMode: 'multiply'}} src={el[1]}/>)) }

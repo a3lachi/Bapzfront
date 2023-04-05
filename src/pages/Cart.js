@@ -158,7 +158,7 @@ const Cart = () => {
 
     const tots = () => {
         var tot = 0 ;
-        products?.forEach((elem)=>(tot+=Number(elem.price.split('$')[1])*Number(elem.quantity)))
+        products?.forEach((elem)=>(tot+=Number(elem.price)*Number(elem.quantity)))
         return tot;
     }
 
