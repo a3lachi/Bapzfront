@@ -37,34 +37,7 @@ function App() {
     store.dispatch(setJwt(localStorage.getItem('jwt')))
   }
 
-  
 
-  const obj = {};
-
-  document.cookie.split(';').map(item => {
-    const [key, value] = item.split('=');
-    obj[key.trim()] = value.trim();
-  });
-
-
-  console.log('JWT in app retrieved from store',obj.jwt)
-  // if (obj.jwt)
-  //   store.dispatch(setJwt(obj.jwt))
-  // const jwwt = maybeJwt ? maybeJwt[1] : ""
-  
-  // // jwt is found to be equal to "jwt=expiry date" right after deleting the cookie
-  // if (jwwt.length > jwt.length || jwt.split('=').length>1) {
-  //   store.dispatch(setJwt(jwwt))
-  // }
-
-  // const storedCart =  JSON.parse(window.localStorage.getItem('state')) 
-  // if (cart?.length === 0 && storedCart?.length>0) {
-  //   store.dispatch(updateCart())
-  // }
-
-  useEffect(()=>{
-    obj?.jwt && store.dispatch(setJwt(obj?.jwt))
-  },[jwt])
 
   return (
     <Router>
