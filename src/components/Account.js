@@ -61,7 +61,7 @@ const Account = (props) => {
                     <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>renderBack()} />
                     <Wrapper>
                         <div style={{marginBottom:'10px'}} >EMAIL : {customer.email}</div>
-                        <div style={{marginBottom:'10px'}} >PASSWORD : {customer.password}</div>
+                        <div style={{marginBottom:'10px'}} >PASSWORD : {customer.pwd}</div>
                         <div style={{marginBottom:'10px'}} >USERNAME : {customer.username}</div>
                         <div style={{marginBottom:'10px'}} >FIRST NAME : {customer.firstname}</div>
                         <div style={{marginBottom:'10px'}} >LAST NAME : {customer.lastname}</div>

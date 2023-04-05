@@ -13,11 +13,13 @@ const userSlice = createSlice({
     username:"",
     badAttempt:false,
     jwt:"",
+    commandsFetched:false,
     commands:[],
   },
   reducers:{
     logUser: (state,action) => {
       state.email = action.payload
+      state.commandsFetched = false
       state.badAttempt = false
     },
     badUser: (state,action) => {
@@ -33,18 +35,25 @@ const userSlice = createSlice({
       // state.email = JSON.parse(window.localStorage.getItem('user'))
     },
     logOutUser:(state,action) => {
-      state.email=" "
-      state.password=""
+      state.email=""
+      state.pwd=""
+      state.commands=[]
+      state.jwt=""
+      state.firstname=""
+      state.lastname=""
+      state.username=""
       document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     },
     setCommands: (state,action) => { // after fetch  from database
       // state.commands = [...state.commands, action.payload]
       state.commands = action.payload
+      state.commandsFetched = true
       console.log('-------------------',action.payload)
     },
     setCustomerAccountData: (state,action) => {
       console.log('MAWSSL LSTORE',action.payload)
       state.email = action.payload[0]
+      state.commandsFetched = false
       state.pwd = action.payload[1]
       state.firstname = action.payload[2]
       state.lastname = action.payload[3]
@@ -69,7 +78,7 @@ const userSlice = createSlice({
           const dateE = `${day}/${month}/${year}`
           axios
               .post(`${Proxy}/api/customer/commands`,{jwt:state.jwt ,cmds:cemds , date:dateE , adrs:address})
-              .then((res)=> console.log(res.data))
+              .then(state.commandsFetched = false)
               .catch((err) => console.log('ERR during AXIOS to update commands'))
       } catch (err) {
         console.log('ERR during TRY to update commands') ;

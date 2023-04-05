@@ -45,6 +45,9 @@ const Commands = (props) => {
     // grab user commands
     const cmds = useSelector((state) =>  state.user.commands)
 
+     // grab fetch indice // COMMANDS CAN BE EMPTY SO CAN'T RELY ON IN TO MAKE REQUEST
+     const commandsFetched = useSelector((state) =>  state.user.commandsFetched)
+
     // render indice
     const [ choseCmd , setChoseCmd ] = useState([])
 
@@ -58,10 +61,10 @@ const Commands = (props) => {
     }
     
     // fetch
-    cmds.length === 0
+    commandsFetched === false
     && axios
             .post(`${Proxy}/api/customer/token`,{jwt:jwt,info:'cmds'})
-            .then((res)=> {setFetching(false); store.dispatch(setCommands(res.data.data))})
+            .then((res)=> store.dispatch(setCommands(res.data.data)))
             .catch((err) => console.log("Error during fetching customer profil data.",err) )
 
 
@@ -78,7 +81,7 @@ const Commands = (props) => {
 
 
     // fetching ...
-    if (fetching ===true) {
+    if (commandsFetched === false) {
         return (
             <div style={{minHeight:'400px'}}>
                 <img width={40} src={process.env.PUBLIC_URL+'/back.png'} onClick={()=>handleClick()} />

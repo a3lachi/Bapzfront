@@ -3,7 +3,8 @@
 
 
 
-export const Proxy = 'http://localhost:3000'
+export const Proxy = window.location.host
 
 
-export const Local = 'http://localhost:3000'
+
+export const Local = 'http://localhost:3001'

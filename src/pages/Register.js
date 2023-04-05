@@ -1,6 +1,6 @@
 import { store } from '../redux/store'
 import {useDispatch} from "react-redux";
-import { newUser , badUser , setJwt } from "../redux/userSlice";
+import { setCustomerAccountData , badUser , setJwt } from "../redux/userSlice";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
 
@@ -99,7 +99,8 @@ const Register = () => {
 
     try {
       if (data.info === 'new') {
-        store.dispatch(newUser(email))
+        console.log('----------- register data',data)
+        store.dispatch(setCustomerAccountData([email,password,firstname,lastname,username]))
         store.dispatch(setJwt(data.jwt))
       }
       else {
